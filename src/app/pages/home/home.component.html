@@ -1,0 +1,38 @@
+<div class="home-container">
+    <h2>Buzz Feed</h2>
+    <h2>{{title}}</h2>
+
+    
+    <app-card 
+        *ngIf="!viewResult"
+        [text]= "questions"
+    
+    />
+
+    <div
+    *ngIf="!viewResult"
+    >
+    <app-button 
+        *ngFor="let btn  of options " 
+        (click)="selectOption(indexOfDados, btn.id, btn.alias)"
+       
+    >{{btn.name}}</app-button>
+    </div>
+    
+    
+    <app-card
+        *ngIf="viewResult"
+        [text]= "'Resposta'"
+    />
+
+    <div 
+        *ngIf="viewResult"
+    >
+
+
+        {{ result==='A' ?  dados[0].results.A : dados[0].results.B }}
+
+
+    </div>
+
+</div>
